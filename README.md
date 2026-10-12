@@ -1,68 +1,68 @@
-# C++ Algorithms and Object-Oriented Programming (OOP) Showcase
+# Алгоритмы на C++ и Объектно-Ориентированное Программирование (ООП)
 
-A curated collection of fundamental algorithms, discrete event modeling, and object-oriented programming designs implemented in modern C++ (C++17/20).
+Коллекция фундаментальных алгоритмов, дискретно-событийного моделирования и архитектурных паттернов объектно-ориентированного программирования на современном C++ (C++17/20).
 
-Designed as an engineering portfolio highlight demonstrating algorithmic efficiency, memory management, and clean OOP architecture.
+Проект демонстрирует вычислительную оптимизацию, эффективное управление памятью и принципы чистого ООП.
 
 ---
 
-## 📂 Repository Structure
+## 📂 Структура репозитория
 
 ```
 cpp-algorithms-and-oop/
 ├── 01-algorithms/
-│   ├── trapping-rain-water/       # Dynamic programming: Prefix maximums O(N) water trapping
-│   ├── event-queue-simulation/    # Discrete-event job pipeline simulation & chronological scheduling
-│   └── partition-optimization/    # Combinatorial search: Backtracking vs Greedy partitioning
+│   ├── trapping-rain-water/       # Динамическое программирование: префиксные максимумы, O(N) по времени
+│   ├── event-queue-simulation/    # Дискретно-событийная имитационная модель конвейерной очереди задач
+│   └── partition-optimization/    # Комбинаторный поиск: перебор с возвратом (Backtracking) vs жадный алгоритм
 └── 02-oop-core/
-    ├── geometry-triangle/         # OOP lifecycle: Constructors, destructor, floating-point validation
-    └── rational-fraction/         # Mathematical invariant maintenance, Euclidean GCD, operator overloading
+    ├── geometry-triangle/         # Жизненный цикл классов: конструкторы, деструкторы, эпсилон-точность
+    └── rational-fraction/         # Сохранение инвариантов, алгоритм Евклида (НОД), перегрузка операторов
 ```
 
 ---
 
-## ⚡ Highlights & Key Topics
+## ⚡ Описание ключевых модулей
 
-### 1. Dynamic Programming & Two-Pointers (`01-algorithms/trapping-rain-water`)
-- **Problem Formulation:** Trapping Rain Water over non-uniform elevation profiles.
-- **Approach:** Computes prefix/suffix maximums in $O(N)$ time with $O(N)$ space.
-- **Concepts:** Vector manipulation, algorithm optimization, edge-case handling.
+### 1. Динамическое программирование (`01-algorithms/trapping-rain-water`)
+- **Постановка задачи:** Вычисление объема удержания дождевой воды между преградами различной высоты (классическая алгоритмическая задача уровня LeetCode Hard).
+- **Подход:** Подсчет векторов левых и правых максимумов за линейное время $O(N)$ с затратами памяти $O(N)$.
+- **Ключевые концепции:** Динамическое программирование, векторы, обработка граничных условий.
 
-### 2. Discrete Event Pipeline Simulation (`01-algorithms/event-queue-simulation`)
-- **Problem Formulation:** Queue processing of asynchronous tasks with arbitrary arrival times and workloads.
-- **Approach:** Chronological event dispatching, timeline progression, throughput analysis.
-- **Concepts:** Custom `struct` data representations, `std::sort` comparator lambdas, simulation metrics.
+### 2. Дискретно-событийное моделирование конвейера (`01-algorithms/event-queue-simulation`)
+- **Постановка задачи:** Моделирование обработки асинхронного потока задач с независимым временем поступления и длительностью выполнения.
+- **Подход:** Хронологическая сортировка событий во времени, продвижение таймлайна, расчет пропускной способности.
+- **Ключевые концепции:** Пользовательские структуры данных (`struct`), компараторы через лямбда-выражения в `std::sort`, временные метрики. Базовый концепт для проектирования очередей в backend и пайплайнах DevOps.
 
-### 3. NP-Hard Heuristics & Backtracking (`01-algorithms/partition-optimization`)
-- **Problem Formulation:** Multi-way number partitioning to minimize subset variance.
-- **Approach:** Compares global optimum search (recursive state-space exploration) against descending Greedy heuristic.
+### 3. Комбинаторная оптимизация разбиения (`01-algorithms/partition-optimization`)
+- **Постановка задачи:** Разбиение $N$ взвешенных элементов на $M$ подмножеств с минимизацией дисбаланса суммарных весов (NP-полная задача о разбиении).
+- **Подход:** Сравнение полного рекурсивного перебора состояний (Backtracking) с эвристическим нисходящим жадным алгоритмом.
 
-### 4. Object Lifecycle & Robust Validation (`02-oop-core/geometry-triangle`)
-- **Features:** Default, parameterized, and copy constructors; RAII and destructor telemetry.
-- **Robustness:** Numerical tolerance checking (`epsilon = 1e-9`) against floating-point inaccuracy.
+### 4. Жизненный цикл объектов и математическая валидация (`02-oop-core/geometry-triangle`)
+- **Возможности:** Конструктор по умолчанию, конструктор с параметрами, конструктор копирования, деструктор (RAII).
+- **Надежность:** Контроль погрешности чисел с плавающей точкой через машинный эпсилон (`epsilon = 1e-9`) при проверке неравенства треугольника.
 
-### 5. Invariant Maintenance & Operator Overloading (`02-oop-core/rational-fraction`)
-- **Features:** Invariant preservation (automatic canonical sign and irreducible form reduction).
-- **Core Math:** Euclidean Greatest Common Divisor (GCD) algorithm; overloaded `+` and `*` operators.
+### 5. Сохранение инвариантов и перегрузка операторов (`02-oop-core/rational-fraction`)
+- **Возможности:** Автоматическое приведение дроби к каноническому несократимому виду и сохранение знака.
+- **Математический базис:** Алгоритм Евклида для нахождения наибольшего общего делителя (НОД), перегрузка арифметических операторов `+` и `*`.
 
 ---
 
-## 🛠️ How to Build and Run
+## 🛠️ Сборка и запуск
 
-All modules are self-contained and standard-compliant. You can compile any module using `g++`, `clang++`, or MSVC:
+Все модули автономны и написаны по стандарту C++17. Скомпилировать любой модуль можно через `g++`, `clang++` или в Visual Studio:
 
 ```bash
-# Example: Compile Trapping Rain Water
+# Пример: Запуск алгоритма накопления воды
 g++ -std=c++17 01-algorithms/trapping-rain-water/main.cpp -o trapping_water
 ./trapping_water
 
-# Example: Compile OOP Triangle Engine
+# Пример: Запуск ООП модуля треугольника
 g++ -std=c++17 02-oop-core/geometry-triangle/main.cpp -o triangle_app
 ./triangle_app
 ```
 
 ---
 
-## 👤 Author
+## 👤 Автор
 - **GitHub:** [@mmmuravei](https://github.com/mmmuravei)
-- **Specialization:** Applied Informatics in Design / Software Engineering & Systems
+- **Направление:** Прикладная информатика / Инженерия программного обеспечения
